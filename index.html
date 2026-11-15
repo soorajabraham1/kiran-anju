@@ -239,13 +239,13 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 /* page one: illustrated background */
 .sheet.hero{
-  background-image:url("page1.jpeg");
+  background-image:url("page1.jpg");
   background-repeat:no-repeat;
   background-position:top;
   background-size:100% auto;
   background-color:#FBF8F4;
   min-height:149.05cqw;
-  padding:15cqw 13cqw 66cqw;
+  padding:15cqw 13cqw 50cqw;
 }
 .hero .verse{max-width:62cqw}
 .hero .lead-in{max-width:min(66cqw,420px)}
@@ -282,6 +282,16 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   .sheet{box-shadow:0 18px 40px -26px rgba(60,78,55,.4);border-radius:4px}
   .sheet + .sheet{margin-top:28px}
 }
+/* bottom-left couple illustration on page 1 */
+.couple-art {
+  position: absolute;
+  bottom: 0;
+  left: 4cqw;               /* distance from the left edge; change to 0 if you want it flush */
+  width: clamp(180px, 42cqw, 290px);
+  height: auto;
+  z-index: 2;               /* sits above the background, below the text */
+  pointer-events: none;     /* prevents the image from blocking clicks on buttons/links */
+}
 </style>
 </head>
 
@@ -293,6 +303,10 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
      ===================================================== -->
 <div class="pagewrap">
 <header class="sheet hero">
+  <div class="bgmid" aria-hidden="true"></div>
+  <img class="couple-art" src="couple.png" alt="">
+
+  <div class="content">
   <div class="bgmid" aria-hidden="true"></div>
 
   <div class="content">
