@@ -21,9 +21,9 @@
 <meta property="og:image:alt"   content="Kiran Jais and Anju Abraham — engagement 02 January, wedding 10 January 2027">
 
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Kiran &amp; Anju are getting married">
+<meta name="twitter:title"      content="Kiran &amp; Anju are getting married">
 <meta name="twitter:description" content="Engagement 02 January · Wedding 10 January 2027.">
-<meta name="twitter:image"       content="https://soorajabraham1.github.io/kiran-anju/share-card.jpeg">
+<meta name="twitter:image"      content="https://soorajabraham1.github.io/kiran-anju/share-card.jpeg">
 
 <meta name="theme-color" content="#E8EBDC">
 
@@ -126,7 +126,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .names{margin-top:clamp(12px,3vw,18px)}
 .name{
   font-family:var(--serif);font-style:italic;font-weight:500;
-  font-size:clamp(28px,08vw,42px);line-height:1.05;letter-spacing:.005em;color:var(--ink);
+  font-size:clamp(28px,8vw,42px);line-height:1.05;letter-spacing:.005em;color:var(--ink);
 }
 .parentage{
   margin:6px auto 0;max-width:400px;
@@ -168,17 +168,6 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   .occasion{padding:0 12px}
   .occasion + .occasion{border-left:1px solid var(--rose-line)}
 }
-
-.jump{
-  display:inline-flex;align-items:center;gap:10px;
-  margin-top:clamp(22px,5.4vw,30px);
-  font-family:var(--label);font-weight:500;text-transform:uppercase;letter-spacing:.22em;font-size:11px;
-  color:var(--ink);text-decoration:none;
-  border:1px solid var(--blue);border-radius:999px;padding:12px 22px 12px 26px;
-  transition:background .2s,color .2s;
-}
-.jump:hover{background:var(--blue);color:#fff}
-.jump svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.6}
 
 /* ---------- page two ---------- */
 .sheet.details{padding-top:clamp(92px,22vw,120px);padding-bottom:clamp(92px,22vw,120px)}
@@ -224,6 +213,19 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .sign-off .lead{font-style:italic;font-weight:400;font-size:clamp(15px,4vw,17px);color:var(--ink-soft)}
 .sign-off .from{font-family:var(--script);color:var(--rose);font-size:clamp(28px,7.6vw,36px);line-height:1.25;margin-top:2px}
 
+/* Make sure printed pages or A4 views match paper dimensions */
+@media print {
+  body {
+    background: white;
+  }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    max-width: none;
+    margin: 0;
+    page-break-after: always;
+  }
+}
 
 /* ---------- illustrated page backgrounds ---------- */
 .pagewrap{container-type:inline-size;max-width:700px;margin:0 auto}
@@ -239,13 +241,13 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 /* page one: illustrated background */
 .sheet.hero{
-  background-image:url("page2.jpg");
+  background-image:url("page1.jpg");
   background-repeat:no-repeat;
   background-position:top;
   background-size:100% auto;
   background-color:#FBF8F4;
   min-height: 110cqw;                   /* Decreased from 149.05cqw */
-  padding: 12cqw 13cqw 10cqw;           /* Decreased bottom padding from 49cqw */
+  padding: 12cqw 13cqw 10cqw;           /* Decreased bottom padding */
 }
 .hero .verse{max-width:62cqw}
 .hero .lead-in{max-width:min(66cqw,420px)}
@@ -290,7 +292,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   width: clamp(220px, 52cqw, 360px);
   height: auto;
   z-index: 2;               /* sits above the background, below the text */
-  pointer-events: none;     /* prevents the image from blocking clicks on buttons/links */
+  pointer-events: none;    /* prevents the image from blocking clicks on buttons/links */
 }
 </style>
 </head>
@@ -305,9 +307,6 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 <header class="sheet hero">
   <div class="bgmid" aria-hidden="true"></div>
   <img class="couple-art" src="couple.png" alt="">
-
-  <div class="content">
-  <div class="bgmid" aria-hidden="true"></div>
 
   <div class="content">
     <p class="verse" data-r style="--d:0">“So they are no longer two, but one. Therefore, what God has joined together, let man not separate.”
@@ -326,14 +325,17 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
       <h2 class="name" data-r style="--d:4">Anju Abraham</h2>
       <p class="parentage" data-r style="--d:5">D/o Mrs. Shelcy Abraham &amp; Mr. Abraham Thomas<br>Kavanadiyil House, Chemperi, Kannur</p>
     </div>
-    <div style="display: grid; grid-template-columns: 45fr 55fr;">
+
+    <div style="display: grid; grid-template-columns: 45fr 55fr; margin-top: 20px;">
       <div><!-- Left side empty or spacer --></div>
       <div style="display: flex; flex-direction: column;">
+        
         <!-- Engagement -->
         <section class="occasion" aria-label="Betrothal" style="margin-top: 30px;">
           <h3 class="occasion-title">Betrothal</h3>
           <p class="label dayname">Monday</p>
-          <p class="num" style="font-size: 38px;">02</p>          <p class="monthyear">January 2027</p>
+          <p class="num" style="font-size: 38px;">02</p>
+          <p class="monthyear">January 2027</p>
           <p class="time-line">at 5:30 PM</p>
           <p class="place">Our Lady of Lourdes Basilica<br>Chemperi</p>
         </section>
@@ -345,12 +347,15 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
         <section class="occasion" aria-label="Wedding">
           <h3 class="occasion-title">Wedding</h3>
           <p class="label dayname">Thursday</p>
-          <p class="num" style="font-size: 38px;">10</p>          <p class="monthyear">January 2027</p>
+          <p class="num" style="font-size: 38px;">10</p>
+          <p class="monthyear">January 2027</p>
           <p class="time-line">at 5:00 PM</p>
           <p class="place">St Stephen's Knanaya catholic forane  church, Uzhavoor</p>
         </section>
-      
+
+      </div>
     </div>
+
   </div>
 </header>
 </div>
