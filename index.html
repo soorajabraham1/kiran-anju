@@ -63,7 +63,7 @@ body{
   font-variant-numeric:lining-nums;
 }
 
-/* ---------- sheet: warm paper with blush + blue watercolour washes ---------- */
+/* ---------- sheet: warm paper ---------- */
 .sheet{
   position:relative;
   max-width:700px;
@@ -71,34 +71,8 @@ body{
   padding:clamp(100px,25vw,136px) clamp(32px,8vw,68px);
   overflow:hidden;
   isolation:isolate;
-  background:
-    radial-gradient(70% 30% at 0% 0%,    rgba(196,214,184,.60), transparent 72%),
-    radial-gradient(55% 26% at 100% 4%,  rgba(224,230,196,.55), transparent 72%),
-    radial-gradient(60% 30% at 0% 58%,   rgba(210,223,196,.38), transparent 72%),
-    radial-gradient(55% 28% at 100% 62%, rgba(222,230,198,.42), transparent 72%),
-    radial-gradient(70% 30% at 100% 100%,rgba(196,214,184,.60), transparent 72%),
-    radial-gradient(60% 26% at 0% 100%,  rgba(224,230,196,.55), transparent 72%),
-    var(--paper);
+  background:var(--paper);
 }
-.sheet .grain{
-  position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .6  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .07 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
-}
-/* soft double border: dusty blue outside, blush inside */
-.sheet::before,.sheet::after{content:"";position:absolute;pointer-events:none;z-index:1}
-.sheet::before{inset:12px;border:1px solid var(--blue-line);border-radius:26px}
-.sheet::after{inset:17px;border:1px solid var(--rose-line);border-radius:22px}
-
-/* ---------- florals in all four corners ---------- */
-.flora{position:absolute;z-index:2;pointer-events:none;aspect-ratio:1/1}
-.flora.big{width:clamp(150px,42vw,290px)}
-.flora.small{width:clamp(96px,26vw,180px)}
-.flora.tl{top:0;left:0}
-.flora.tr{top:0;right:0;transform:scaleX(-1)}
-.flora.br{bottom:0;right:0;transform:rotate(180deg)}
-.flora.bl{bottom:0;left:0;transform:scaleY(-1)}
-.sheet.lite .flora.big{width:clamp(110px,30vw,210px)}
-.sheet.lite .flora.small{width:clamp(80px,21vw,150px)}
 
 .content{position:relative;z-index:3;text-align:center}
 a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
@@ -215,41 +189,31 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .sign-off .lead{font-style:italic;font-weight:400;font-size:clamp(15px,4vw,17px);color:var(--ink-soft)}
 .sign-off .from{font-family:var(--script);color:var(--rose);font-size:clamp(28px,7.6vw,36px);line-height:1.25;margin-top:2px}
 
-/* Make sure printed pages or A4 views match paper dimensions */
-@media print {
-  body {
-    background: white;
-  }
-  .sheet {
-    width: 210mm;
-    height: 297mm;
-    max-width: none;
-    margin: 0;
-    page-break-after: always;
-  }
-}
-
-/* ---------- illustrated page backgrounds ---------- */
+/* ---------- illustrated page backgrounds (real <img> so print/PDF never strips it) ---------- */
 .pagewrap{container-type:inline-size;max-width:700px;margin:0 auto}
 @media (min-width:760px){.pagewrap + .pagewrap{margin-top:28px}}
-.sheet.hero::before,.sheet.hero::after,.sheet.details::before,.sheet.details::after{display:none}
 .sheet.hero,.sheet.details{
   --ink:#2B3A5A; --ink-soft:#66708A; --rose:#8B7240;
   --rose-line:rgba(160,130,70,.45); --blue:#44587E;
-  max-width:none;margin:0;background-color:#FBF8F4;background-repeat:no-repeat;
-  background-position:center top,center bottom;background-size:100% auto,100% auto;
+  max-width:none;margin:0;background-color:#FBF8F4;
 }
-.bgmid{position:absolute;left:0;right:0;z-index:0;pointer-events:none;background-repeat:no-repeat round;background-position:top center}
+
+.bg-art{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  z-index:0;
+  pointer-events:none;
+}
 
 /* page one: illustrated background */
 .sheet.hero{
-  background-image:url("page2c.jpg");
-  background-repeat:no-repeat;
-  background-position:top;
-  background-size:100% auto;
-  background-color:#FBF8F4;
-  min-height: 110cqw;
-  padding: 12cqw 13cqw 6cqw;
+  min-height:110cqw;
+  padding:12cqw 13cqw 6cqw;
 }
 .hero .verse{max-width:62cqw}
 .hero .lead-in{max-width:min(66cqw,420px)}
@@ -261,21 +225,15 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 .hero .place{font-size:clamp(10px,2.7cqw,12.5px);letter-spacing:.12em}
 .hero .script-note{font-size:clamp(14px,3.6cqw,17px)}
 
-/* page two: venue + timings, leaves at the bottom-left */
+/* page two: venue + timings */
 .sheet.details{
-  background-image:url("page2c.jpg");
-  background-repeat:no-repeat;
-  background-position:top;
-  background-size:100% auto;
-  background-color:#FBF8F4;
   min-height:110.05cqw;
   padding:15cqw 16cqw 45cqw;
 }
+
 /* ---------- one orchestrated moment on load ---------- */
 @keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .hero [data-r]{animation:settle .9s cubic-bezier(.22,.68,.28,1) both;animation-delay:calc(var(--d,0) * 130ms + 80ms)}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -286,6 +244,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   .sheet{box-shadow:0 18px 40px -26px rgba(60,78,55,.4);border-radius:4px}
   .sheet + .sheet{margin-top:28px}
 }
+
 /* bottom-left couple illustration on page 1 */
 .couple-art {
   position: absolute;
@@ -295,6 +254,46 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   height: auto;
   z-index: 2;
   pointer-events: none;
+}
+
+/* ---------- Print / Save as PDF rules ---------- */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    background: #FBF8F4;
+    padding: 0;
+  }
+  .pagewrap {
+    max-width: none;
+    width: 210mm;
+    margin: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .pagewrap:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .hero [data-r] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 </style>
 </head>
@@ -307,7 +306,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
      ===================================================== -->
 <div class="pagewrap">
 <header class="sheet hero">
-  <div class="bgmid" aria-hidden="true"></div>
+  <img class="bg-art" src="page2c.jpg" alt="">
   <img class="couple-art" src="couple.png" alt="">
 
   <div class="content">
@@ -367,7 +366,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
      ===================================================== -->
 <div class="pagewrap">
 <main class="sheet details" id="details">
-  <div class="bgmid" aria-hidden="true"></div>
+  <img class="bg-art" src="page2c.jpg" alt="">
 
   <div class="content">
 
@@ -414,7 +413,6 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
         <p class="what">Reception</p>
         <p class="where">Same evening, following the ceremony at St. Stephen's Parish Hall</p>
         <a class="maplink" href="https://share.google/MHBBQyCODZyhyyJcQ" target="_blank" rel="noopener">Open in Maps</a>
-
       </div>
 
       <a class="addcal" href="wedding.ics" download>
