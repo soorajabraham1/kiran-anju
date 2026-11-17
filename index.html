@@ -147,7 +147,11 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 /* ---------- page two ---------- */
 .sheet.details{padding-top:clamp(92px,22vw,120px);padding-bottom:clamp(92px,22vw,120px)}
-.function + .function{margin-top:clamp(30px,7vw,42px)}
+.function + .function{
+  margin-top:clamp(44px,11vw,56px);
+  padding-top:clamp(36px,9vw,48px);
+  border-top:1px solid var(--rose-line);
+}
 .function{display:flex;flex-direction:column;align-items:center}
 .function .stop{width:100%}
 .function .addcal{margin-top:auto}
@@ -155,7 +159,12 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 @media (min-width:560px){
   .functions{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
   .function{padding:0 12px}
-  .function + .function{margin-top:0;border-left:1px solid var(--rose-line)}
+  .function + .function{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+    border-left:1px solid var(--rose-line);
+  }
   .sheet.details{padding-top:140px;padding-bottom:140px}
 }
 .section-title{font-family:var(--script);font-weight:400;font-size:clamp(42px,11.5vw,56px);line-height:1.05;color:var(--rose)}
@@ -203,9 +212,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
   top:0;
   left:0;
   width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top center;
+  height:auto;
   z-index:0;
   pointer-events:none;
 }
@@ -228,7 +235,7 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 /* page two: venue + timings */
 .sheet.details{
   min-height:110.05cqw;
-  padding:15cqw 16cqw 45cqw;
+  padding:15cqw 16cqw 36cqw;
 }
 
 /* ---------- one orchestrated moment on load ---------- */
@@ -288,6 +295,10 @@ a:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
     margin: 0;
     box-shadow: none;
     border-radius: 0;
+  }
+  .bg-art {
+    height: 100%;
+    object-fit: cover;
   }
   .hero [data-r] {
     animation: none !important;
