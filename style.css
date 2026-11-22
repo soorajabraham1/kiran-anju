@@ -350,13 +350,13 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .celebrations {
   position: relative;
   overflow: hidden;
-  padding: var(--space) 24px;
+  padding: var(--space) 20px;
   background: var(--paper-deep);
 }
 .leaf {
   position: absolute;
   width: clamp(160px, 24vw, 320px);
-  opacity: .85;
+  opacity: .7;
   pointer-events: none;
 }
 .leaf-a { left: 0; bottom: 0; }
@@ -365,125 +365,167 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .events {
   position: relative;
   display: grid;
-  gap: 32px;
-  max-width: 1040px;
-  margin: clamp(40px, 6vw, 64px) auto 0;
+  gap: 28px;
+  max-width: 1080px;
+  margin: clamp(36px, 5vw, 56px) auto 0;
 }
-@media (min-width: 860px) {
-  .events { grid-template-columns: 1fr 1fr; gap: 40px; }
+/* two events side by side on wide screens; a single event stays centred */
+@media (min-width: 900px) {
+  .events { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+.events--single { max-width: 620px; }
+@media (min-width: 900px) {
+  .events--single { grid-template-columns: 1fr; }
 }
 
 .event {
-  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   background: var(--card);
-  padding: clamp(48px, 6vw, 72px) clamp(28px, 4vw, 56px);
-  box-shadow: 0 30px 60px -40px rgba(36, 53, 43, .35);
-}
-/* fine inset gold frame */
-.event::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid var(--gold-line);
-  pointer-events: none;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(36, 53, 43, .06), 0 24px 48px -28px rgba(36, 53, 43, .35);
 }
 
-.event-day {
-  font-family: var(--sans);
-  font-size: 11.5px;
-  letter-spacing: .32em;
-  text-transform: uppercase;
-  color: var(--sage);
-  padding-left: .32em;
-}
-.event-num {
-  margin-top: 6px;
-  font-weight: 400;
-  font-size: clamp(76px, 9vw, 104px);
-  line-height: .95;
-}
-.event-month {
-  margin-top: 6px;
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  padding-left: .3em;
+/* dark header band with the date */
+.event-head {
+  padding: clamp(32px, 5vw, 44px) clamp(24px, 5vw, 44px) clamp(28px, 4vw, 36px);
+  background: var(--ink);
+  color: var(--ivory);
+  text-align: center;
 }
 .event-title {
-  margin-top: 22px;
   font-family: var(--script);
   font-weight: 400;
-  font-size: clamp(46px, 5vw, 60px);
-  line-height: 1.05;
-  color: var(--gold);
+  font-size: clamp(52px, 6vw, 68px);
+  line-height: 1;
+  color: #E3CFA4;
 }
-
-.programme {
-  list-style: none;
-  width: 100%;
-  max-width: 360px;
-  margin: 28px auto 36px;
-}
-.programme li { padding: 22px 0; }
-.programme li + li { border-top: 1px solid var(--gold-line); }
-
-.stop-time {
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.stop-what {
-  margin-top: 6px;
-  font-weight: 600;
-  font-size: clamp(22px, 2vw, 26px);
-  line-height: 1.2;
-}
-.stop-where {
-  margin-top: 4px;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink-soft);
-  text-wrap: balance;
-}
-.stop-map {
-  display: inline-block;
-  margin-top: 12px;
-  padding-bottom: 3px;
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--ink);
-  border-bottom: 1px solid var(--gold);
-  transition: color .25s;
-}
-.stop-map:hover { color: var(--gold); }
-
-.btn {
-  margin-top: auto;
+.event-date {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px 30px;
+  gap: 16px;
+  margin-top: 18px;
+  text-align: left;
+}
+.event-num {
+  font-weight: 400;
+  font-size: clamp(60px, 7vw, 76px);
+  line-height: .85;
+  padding-right: 16px;
+  border-right: 1px solid rgba(227, 207, 164, .45);
+}
+.event-date-text { display: flex; flex-direction: column; gap: 6px; }
+.event-day {
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.1;
+}
+.event-month {
   font-family: var(--sans);
-  font-size: 11.5px;
-  letter-spacing: .26em;
+  font-size: 14px;
+  letter-spacing: .16em;
   text-transform: uppercase;
+  opacity: .85;
+}
+
+/* timeline of the day */
+.timeline {
+  list-style: none;
+  padding: clamp(28px, 5vw, 40px) clamp(20px, 5vw, 44px) 8px;
+}
+.stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 0 22px;
+  padding-bottom: 30px;
+}
+/* line + dot */
+.stop::before {
+  content: "";
+  position: absolute;
+  left: 87px;
+  top: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--gold);
+}
+.stop::after {
+  content: "";
+  position: absolute;
+  left: 92px;
+  top: 24px;
+  bottom: 2px;
+  width: 1px;
+  background: var(--gold-line);
+}
+.stop:last-child::after { display: none; }
+
+.stop-time {
+  padding-top: 2px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--gold);
+  text-align: right;
+  white-space: nowrap;
+}
+.stop-body { padding-left: 16px; }
+.stop-what {
+  font-weight: 600;
+  font-size: clamp(24px, 2.2vw, 27px);
+  line-height: 1.15;
+}
+.stop-where {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.stop-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  background: rgba(148, 118, 63, .1);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .04em;
   text-decoration: none;
   color: var(--ink);
-  border: 1px solid var(--ink);
-  transition: background .3s, color .3s;
+  transition: background .25s, color .25s;
 }
-.btn:hover { background: var(--ink); color: var(--ivory); }
-.btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.stop-map:hover { background: var(--gold); color: #fff; }
+.stop-map svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+.btn {
+  margin: auto clamp(20px, 5vw, 44px) clamp(28px, 5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-decoration: none;
+  color: var(--ivory);
+  background: var(--ink);
+  transition: background .3s, transform .3s;
+}
+.btn:hover { background: #33493B; transform: translateY(-1px); }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
 /* =====================================================================
    FOOTER
@@ -524,13 +566,12 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   body { font-size: 19px; }
 
   /* small capitals */
-  .eyebrow, .kicker, .verse cite, .person-home, .event-day, .event-month,
-  .stop-time, .stop-map, .btn, .footer-dates, .hero-dates {
+  .eyebrow, .kicker, .verse cite, .person-home, .footer-dates, .hero-dates {
     font-size: 13.5px;
     font-weight: 400;
     letter-spacing: .16em;
   }
-  .eyebrow, .event-day, .event-month { padding-left: .16em; }
+  .eyebrow { padding-left: .16em; }
   .eyebrow { font-size: 14px; letter-spacing: .22em; padding-left: .22em; }
   .hero-dates { font-size: 14px; letter-spacing: .1em; }
   .hero-dates span { font-size: 12px; letter-spacing: .18em; }
@@ -553,10 +594,13 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   .count-date { font-size: 21px; }
 
   /* events */
-  .event { padding: 52px 24px; }
+  .celebrations { padding-left: 14px; padding-right: 14px; }
+  .stop { grid-template-columns: 68px 1fr; gap: 0 14px; }
+  .stop::before { left: 75px; }
+  .stop::after { left: 80px; }
+  .stop-body { padding-left: 14px; }
   .stop-what { font-size: 25px; }
-  .stop-where { font-size: 20px; }
-  .btn { padding: 16px 26px; }
+  .stop-where { font-size: 17px; }
 
   /* footer */
   .footer-lead { font-size: 20px; }
@@ -587,6 +631,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .hero { min-height: 0; height: 100vh; page-break-after: always; }
   .scroll-cue, .countdown, .btn, .stop-map, .leaf { display: none !important; }
+  .event-head { background: none; color: var(--ink); }
   .js .reveal { opacity: 1; transform: none; }
   .event { box-shadow: none; break-inside: avoid; }
 }
