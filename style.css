@@ -7,9 +7,9 @@
   --paper-deep: #F2EEE4;
   --card:       #FFFEFB;
   --ink:        #24352B;   /* deep forest */
-  --ink-soft:   #5E6B5F;
-  --sage:       #7D8B6F;
-  --gold:       #A88A55;
+  --ink-soft:   #4A574B;
+  --sage:       #5F6E55;
+  --gold:       #94763F;
   --gold-line:  rgba(168, 138, 85, .45);
   --ivory:      #F7F3EA;
 
@@ -108,7 +108,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 
 .kicker {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 12.5px;
   letter-spacing: .34em;
   text-transform: uppercase;
@@ -149,7 +149,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   flex-wrap: wrap;
   gap: 10px 36px;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 13px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -275,7 +275,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .person-parents {
   margin-top: 14px;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 15px;
   letter-spacing: .03em;
   color: var(--ink-soft);
@@ -329,7 +329,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   display: block;
   margin-top: 12px;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 10.5px;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -515,6 +515,52 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--sage);
+}
+
+/* =====================================================================
+   PHONES — larger, less-tracked type so everything reads comfortably
+   ===================================================================== */
+@media (max-width: 600px) {
+  body { font-size: 19px; }
+
+  /* small capitals */
+  .eyebrow, .kicker, .verse cite, .person-home, .event-day, .event-month,
+  .stop-time, .stop-map, .btn, .footer-dates, .hero-dates {
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: .16em;
+  }
+  .eyebrow, .event-day, .event-month { padding-left: .16em; }
+  .eyebrow { font-size: 14px; letter-spacing: .22em; padding-left: .22em; }
+  .hero-dates { font-size: 14px; letter-spacing: .1em; }
+  .hero-dates span { font-size: 12px; letter-spacing: .18em; }
+  .count-unit { font-size: 12px; letter-spacing: .12em; }
+
+  /* hero */
+  .hero-tagline { font-size: 23px; }
+
+  /* verse + invitation */
+  .verse blockquote p { font-size: 24px; }
+  .lead-in { font-size: 22px; color: var(--ink); }
+  .person-name { font-size: 34px; }
+  .person-parents { font-size: 17px; letter-spacing: .01em; color: var(--ink); }
+  .person-home { line-height: 1.7; }
+  .person-parents, .person-home { text-wrap: balance; }
+  .leaf { width: 130px; opacity: .55; }
+
+  /* countdown */
+  .count-num { font-size: 46px; }
+  .count-date { font-size: 21px; }
+
+  /* events */
+  .event { padding: 52px 24px; }
+  .stop-what { font-size: 25px; }
+  .stop-where { font-size: 20px; }
+  .btn { padding: 16px 26px; }
+
+  /* footer */
+  .footer-lead { font-size: 20px; }
+  .footer-dates { line-height: 1.9; }
 }
 
 /* =====================================================================
