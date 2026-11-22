@@ -218,6 +218,14 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   .hero-names .amp { margin: 0 .1em; font-size: .7em; }
   .hero .hairline { margin: 16px auto 18px; }
   .hero-dates { justify-content: center; gap: 8px 20px; font-size: 12px; margin: 0 auto; flex-wrap: nowrap; }
+  /* names at the top, dates at the bottom: the couple's faces stay clear on every screen height */
+  .hero-text {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(max(24px, env(safe-area-inset-bottom)) + 76px);
+  }
+  .hero-dates { margin-top: auto; }
 }
 
 /* =====================================================================
