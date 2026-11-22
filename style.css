@@ -154,6 +154,20 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   letter-spacing: .18em;
   text-transform: uppercase;
 }
+/* the dates sit on one small frosted chip so they stay readable over the photo */
+.hero-dates {
+  width: fit-content;
+  padding: 10px 24px 11px;
+  border: 1px solid rgba(227, 207, 164, .4);
+  border-radius: 999px;
+  background: rgba(20, 30, 24, .55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  text-shadow: none;
+}
+.hero-dates li { white-space: nowrap; }
+.hero-dates li + li { padding-left: 20px; border-left: 1px solid rgba(227, 207, 164, .4); }
+.hero-text { text-shadow: 0 1px 14px rgba(10, 18, 13, .45); }
 .hero-dates span {
   display: block;
   margin-bottom: 4px;
@@ -191,7 +205,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   .hero-photo img { object-position: 50% 100%; }
   .hero::before {
     background:
-      linear-gradient(180deg, rgba(20, 30, 24, .82) 0%, rgba(20, 30, 24, .55) 32%, rgba(20, 30, 24, 0) 55%),
+      linear-gradient(180deg, rgba(20, 30, 24, .85) 0%, rgba(20, 30, 24, .62) 38%, rgba(20, 30, 24, .25) 52%, rgba(20, 30, 24, 0) 66%),
       linear-gradient(0deg, rgba(20, 30, 24, .35) 0%, rgba(20, 30, 24, 0) 22%);
   }
   .hero-text {
@@ -202,8 +216,8 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   .hero-names { font-size: clamp(54px, 17vw, 92px); }
   .hero-names span { display: inline; }
   .hero-names .amp { margin: 0 .1em; font-size: .7em; }
-  .hero .hairline { margin: 20px auto 18px; }
-  .hero-dates { justify-content: center; gap: 8px 28px; font-size: 12px; }
+  .hero .hairline { margin: 16px auto 18px; }
+  .hero-dates { justify-content: center; gap: 8px 20px; font-size: 12px; margin: 0 auto; flex-wrap: nowrap; }
 }
 
 /* =====================================================================
@@ -576,6 +590,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   .eyebrow { font-size: 14px; letter-spacing: .22em; padding-left: .22em; }
   .hero-dates { font-size: 14px; letter-spacing: .1em; }
   .hero-dates span { font-size: 12px; letter-spacing: .18em; }
+
   .count-unit { font-size: 12px; letter-spacing: .12em; }
 
   /* hero */
@@ -606,6 +621,12 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   /* footer */
   .footer-lead { font-size: 20px; }
   .footer-dates { line-height: 1.9; }
+}
+
+@media (max-width: 400px) {
+  .hero-text { padding-left: 16px; padding-right: 16px; }
+  .hero-dates { padding: 9px 18px 10px; gap: 8px 14px; font-size: 13px; letter-spacing: .05em; }
+  .hero-dates li + li { padding-left: 14px; }
 }
 
 /* =====================================================================
