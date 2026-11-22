@@ -119,3 +119,55 @@ sign_off:
 # ---------- calendar file text ----------
 calendar:
   summary_prefix: "Kiran & Anju — "
+
+# ---------- separate invite links ----------
+#  Each entry builds <slug>/index.html showing ONLY the listed events.
+#    https://soorajabraham1.github.io/kiran-anju/<slug>/
+#  "events"    -> event ids (from the list above) shown on that page
+#  "overrides" -> any setting above, replaced for that page only
+#  The countdown on each page counts to its last event's start time.
+#  The root link (index.html) stays the combined invitation.
+invites:
+  - slug: wdg
+    events: [wedding]
+    overrides:
+      page:
+        title: "Kiran & Anju — Wedding Invitation"
+        description: "Kiran Jais and Anju Abraham invite you to their wedding."
+        theme_color: "#24352B"
+      share:
+        site_name: "Kiran & Anju"
+        title: "Kiran & Anju are getting married"
+        description: "Wedding · Sunday, 10 January 2027 · Uzhavoor. Timings and directions inside."
+        twitter_description: "Wedding · 10 January 2027."
+        image: share-card.jpeg
+        image_width: 1200
+        image_height: 630
+        image_alt: "Kiran Jais and Anju Abraham — wedding 10 January 2027"
+      countdown:
+        label: "Counting down to the wedding"
+      lead_in: "Together with our families, we have the pleasure of requesting your esteemed presence at the wedding of"
+
+  - slug: btl
+    events: [engagement]
+    overrides:
+      page:
+        title: "Kiran & Anju — Betrothal Invitation"
+        description: "Kiran Jais and Anju Abraham invite you to their betrothal."
+        theme_color: "#24352B"
+      share:
+        site_name: "Kiran & Anju"
+        title: "Kiran & Anju are getting engaged"
+        description: "Betrothal · Saturday, 02 January 2027 · Chemperi. Timings and directions inside."
+        twitter_description: "Betrothal · 02 January 2027."
+        image: share-card.jpeg
+        image_width: 1200
+        image_height: 630
+        image_alt: "Kiran Jais and Anju Abraham — betrothal 02 January 2027"
+      hero:
+        kicker: "Together with their families"
+        first_names: ["Kiran", "Anju"]
+        tagline: "are getting engaged"
+      countdown:
+        label: "Counting down to the betrothal"
+      lead_in: "Together with our families, we have the pleasure of requesting your esteemed presence at the betrothal of"
