@@ -20,8 +20,8 @@ share:
   title: "Kiran & Anju are getting married"
   description: "Engagement 02 January · Wedding 10 January 2027. Timings and directions inside."
   twitter_description: "Engagement 02 January · Wedding 10 January 2027."
-  image: share-card.jpeg          # 1200 x 630
-  image_width: 1200
+  image: share-card.jpeg          # 1129 x 630
+  image_width: 1129
   image_height: 630
   image_alt: "Kiran Jais and Anju Abraham — engagement 02 January, wedding 10 January 2027"
 
@@ -140,8 +140,8 @@ invites:
         title: "Kiran & Anju are getting married"
         description: "Wedding · Sunday, 10 January 2027 · Uzhavoor. Timings and directions inside."
         twitter_description: "Wedding · 10 January 2027."
-        image: share-card.jpeg
-        image_width: 1200
+        image: share-wedding.jpeg
+        image_width: 1129
         image_height: 630
         image_alt: "Kiran Jais and Anju Abraham — wedding 10 January 2027"
       countdown:
@@ -160,8 +160,8 @@ invites:
         title: "Kiran & Anju are getting engaged"
         description: "Betrothal · Saturday, 02 January 2027 · Chemperi. Timings and directions inside."
         twitter_description: "Betrothal · 02 January 2027."
-        image: share-card.jpeg
-        image_width: 1200
+        image: share-betrothal.jpeg
+        image_width: 1129
         image_height: 630
         image_alt: "Kiran Jais and Anju Abraham — betrothal 02 January 2027"
       hero:
