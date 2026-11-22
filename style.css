@@ -549,6 +549,7 @@ a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
   font-size: clamp(42px, 5vw, 56px);
   line-height: 1.2;
   color: var(--gold);
+  text-wrap: balance;
 }
 .footer-dates {
   margin-top: 40px;
