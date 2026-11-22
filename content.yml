@@ -42,7 +42,7 @@ hero:
 # ---------- countdown (wedding ceremony start, India time) ----------
 countdown:
   label: "Counting down to the wedding"
-  to: "2027-01-10T17:00:00+05:30"
+  to: "2027-01-10T17:30:00+05:30"
 
 # ---------- section headings ----------
 headings:
@@ -96,13 +96,13 @@ events:
   - id: wedding
     title: "Wedding"
     date: 2027-01-10
-    time: "5:00 PM"
+    time: "5:30 PM"
     place:
       - "St. Stephen's Knanaya Catholic Forane Church, Uzhavoor"
-    start: "17:00"
+    start: "17:30"
     end: "22:00"
     stops:
-      - time: "5:00 PM"
+      - time: "5:30 PM"
         what: "Wedding ceremony"
         where: "St. Stephen's Knanaya Catholic Forane Church, Uzhavoor"
         map: "https://maps.app.goo.gl/MrJUDg9LnRrHomyk7"
