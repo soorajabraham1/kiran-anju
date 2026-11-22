@@ -114,7 +114,7 @@ events:
 # ---------- footer ----------
 sign_off:
   lead: "With best compliments from"
-  from: "Family & Beloved Ones"
+  from: "Near & Dear Ones"
 
 # ---------- calendar file text ----------
 calendar:
