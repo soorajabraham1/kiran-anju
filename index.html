@@ -2,166 +2,184 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kiran &amp; Anju — Wedding Invitation</title>
 <meta name="description" content="Kiran Jais and Anju Abraham invite you to their engagement and wedding.">
 
-<!-- ===================================================================
-     SHARE PREVIEW  — live at soorajabraham1.github.io/kiran-anju/
-     =================================================================== -->
+<!-- link preview (WhatsApp, Facebook, X ...) -->
 <meta property="og:type"             content="website">
 <meta property="og:site_name"        content="Kiran &amp; Anju">
 <meta property="og:title"            content="Kiran &amp; Anju are getting married">
 <meta property="og:description"      content="Engagement 02 January · Wedding 10 January 2027. Timings and directions inside.">
 <meta property="og:url"              content="https://soorajabraham1.github.io/kiran-anju/">
-
 <meta property="og:image"            content="https://soorajabraham1.github.io/kiran-anju/share-card.jpeg">
 <meta property="og:image:secure_url" content="https://soorajabraham1.github.io/kiran-anju/share-card.jpeg">
 <meta property="og:image:type"       content="image/jpeg">
 <meta property="og:image:width"      content="1200">
 <meta property="og:image:height"     content="630">
 <meta property="og:image:alt"        content="Kiran Jais and Anju Abraham — engagement 02 January, wedding 10 January 2027">
-
 <meta name="twitter:card"            content="summary_large_image">
 <meta name="twitter:title"           content="Kiran &amp; Anju are getting married">
 <meta name="twitter:description"     content="Engagement 02 January · Wedding 10 January 2027.">
 <meta name="twitter:image"           content="https://soorajabraham1.github.io/kiran-anju/share-card.jpeg">
-
-<meta name="theme-color" content="#E8EBDC">
+<meta name="theme-color" content="#24352B">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Jost:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-portrait.jpg" media="(max-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="img/hero-wide.jpg" media="(min-aspect-ratio: 4/5)">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body>
 
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <picture class="hero-photo">
+    <source media="(max-aspect-ratio: 4/5)" srcset="img/hero-portrait.jpg">
+    <img src="img/hero-wide.jpg" alt="Kiran and Anju in a garden" fetchpriority="high">
+  </picture>
 
-<!-- =====================================================
-     PAGE ONE — who, whose, when
-     ===================================================== -->
-<div class="pagewrap">
-<header class="sheet hero">
-  <img class="bg-art" src="page2c.jpg" alt="">
-  <img class="couple-art" src="couple.png" alt="">
-
-  <div class="content">
-    <p class="verse" data-r style="--d:0">“So they are no longer two, but one. Therefore, what God has joined together, let man not separate.”
-      <cite>Matthew 19:6</cite></p>
-
-    <div class="rule" data-r style="--d:1"></div>
-
-    <p class="lead-in" data-r style="--d:2">Together with our families, we have the pleasure of requesting your esteemed presence at our betrothal and wedding of</p>
-
-    <div class="names">
-      <h1 class="name" data-r style="--d:3">Kiran Jais Chemmanatte</h1>
-      <p class="parentage" data-r style="--d:3">S/o Dr. Sindhumol Jacob &amp; Dr. Jais P Chemmanattu<br>Chemmanatte House, Uzhavoor, Kottayam</p>
-
-      <p class="and" data-r style="--d:4">and</p>
-
-      <h2 class="name" data-r style="--d:4">Anju Abraham</h2>
-      <p class="parentage" data-r style="--d:5">D/o Mrs. Shelcy Abraham &amp; Mr. Abraham Thomas<br>Kavanadiyil House, Chemperi, Kannur</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 45fr 55fr; margin-top: 16px;">
-      <div><!-- Left side empty or spacer --></div>
-      <div style="display: flex; flex-direction: column;">
-
-        <section class="occasion" aria-label="Betrothal" style="margin-top: 0px;">
-          <h3 class="occasion-title">Betrothal</h3>
-          <p class="label dayname">Saturday</p>
-          <p class="num" style="font-size: 38px;">02</p>
-          <p class="monthyear">January 2027</p>
-          <p class="time-line">at 5:30 PM</p>
-          <p class="place">Our Lady of Lourdes Basilica<br>Chemperi</p>
-        </section>
-
-        <!-- Golden Dividing Line -->
-        <div class="rule" style="width: 100%; margin: 20px 0;"></div>
-
-        <section class="occasion" aria-label="Wedding">
-          <h3 class="occasion-title">Wedding</h3>
-          <p class="label dayname">Sunday</p>
-          <p class="num" style="font-size: 38px;">10</p>
-          <p class="monthyear">January 2027</p>
-          <p class="time-line">at 5:00 PM</p>
-          <p class="place">St Stephen&#39;s Knanaya catholic forane church, Uzhavoor</p>
-        </section>
-
-      </div>
-    </div>
-
+  <div class="hero-text">
+    <p class="kicker">Together with their families</p>
+    <h1 class="hero-names">
+      <span>Kiran</span>
+      <span class="amp">&amp;</span>
+      <span>Anju</span>
+    </h1>
+    <p class="hero-tagline">are getting married</p>
+    <span class="hairline" aria-hidden="true"></span>
+    <ul class="hero-dates">
+      <li><span>Betrothal</span>02 January 2027</li>
+      <li><span>Wedding</span>10 January 2027</li>
+    </ul>
   </div>
+
+  <a class="scroll-cue" href="#invitation" aria-label="Scroll to the invitation"><span></span></a>
 </header>
-</div>
 
-<!-- =====================================================
-     PAGE TWO — where and at what time
-     ===================================================== -->
-<div class="pagewrap">
-<main class="sheet details" id="details">
-  <img class="bg-art" src="page2c.jpg" alt="">
+<main>
 
-  <div class="content">
+<!-- ============================ VERSE ============================ -->
+<section class="verse reveal" aria-label="Verse">
+  <svg class="ornament" viewBox="0 0 120 12" aria-hidden="true"><path d="M0 6h50M70 6h50"/><path d="M60 1l5 5-5 5-5-5z"/></svg>
+  <blockquote>
+    <p>“So they are no longer two, but one. Therefore, what God has joined together, let man not separate.”</p>
+    <cite>Matthew 19:6</cite>
+  </blockquote>
+</section>
 
-    <div class="functions">
+<!-- ============================ INVITATION ============================ -->
+<section class="invitation" id="invitation">
+  <p class="eyebrow reveal">The Invitation</p>
+  <p class="lead-in reveal">Together with our families, we have the pleasure of requesting your esteemed presence at our betrothal and wedding of</p>
 
-    <section class="function">
-      <h2 class="section-title">Betrothal</h2>
-      <p class="label section-date">Saturday, 02 January 2027</p>
-      <div class="rule"></div>
-
-      <div class="stop">
-        <p class="time">05:30 PM</p>
-        <p class="what">Betrothal ceremony</p>
-        <p class="where">Our Lady of Lourdes Basilica, Chemperi</p>
-        <a class="maplink" href="https://maps.app.goo.gl/2BvKakWqRWWPQm9R8" target="_blank" rel="noopener">Open in Maps</a>
-      </div>
-
-      <div class="stop">
-        <p class="time">06:00 PM</p>
-        <p class="what">Reception</p>
-        <p class="where">Same evening, following the ceremony at Chemperi Meadows</p>
-        <a class="maplink" href="https://maps.app.goo.gl/AWV4axcUvWkXK2Ru6" target="_blank" rel="noopener">Open in Maps</a>
-      </div>
-
-      <a class="addcal" href="engagement.ics" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>Add to calendar</a>
-    </section>
-
-    <section class="function">
-      <h2 class="section-title">Wedding</h2>
-      <p class="label section-date">Sunday, 10 January 2027</p>
-      <div class="rule"></div>
-
-      <div class="stop">
-        <p class="time">5:00 PM</p>
-        <p class="what">Wedding ceremony</p>
-        <p class="where">St Stephen&#39;s Knanaya catholic forane church, Uzhavoor</p>
-        <a class="maplink" href="https://maps.app.goo.gl/MrJUDg9LnRrHomyk7" target="_blank" rel="noopener">Open in Maps</a>
-      </div>
-
-      <div class="stop">
-        <p class="time">7:00 PM</p>
-        <p class="what">Reception</p>
-        <p class="where">Same evening, following the ceremony at St. Stephen&#39;s Parish Hall</p>
-        <a class="maplink" href="https://share.google/MHBBQyCODZyhyyJcQ" target="_blank" rel="noopener">Open in Maps</a>
-      </div>
-
-      <a class="addcal" href="wedding.ics" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>Add to calendar</a>
-    </section>
-
+  <div class="couple">
+    <div class="person reveal">
+      <h2 class="person-name">Kiran Jais Chemmanatte</h2>
+      <p class="person-parents">S/o Dr. Sindhumol Jacob &amp; Dr. Jais P Chemmanattu</p>
+      <p class="person-home">Chemmanatte House, Uzhavoor, Kottayam</p>
     </div>
-
-    <div class="sign-off">
-      <p class="lead">With best compliments from</p>
-      <p class="from">Sooraj &amp; Anju</p>
+    <p class="couple-and reveal" aria-hidden="true">and</p>
+    <div class="person reveal">
+      <h2 class="person-name">Anju Abraham</h2>
+      <p class="person-parents">D/o Mrs. Shelcy Abraham &amp; Mr. Abraham Thomas</p>
+      <p class="person-home">Kavanadiyil House, Chemperi, Kannur</p>
     </div>
   </div>
-</main>
-</div>
+</section>
 
+<!-- ============================ COUNTDOWN ============================ -->
+<section class="countdown" aria-label="Counting down to the wedding" data-to="2027-01-10T17:00:00+05:30">
+  <p class="eyebrow">Counting down to the wedding</p>
+  <div class="count-grid">
+    <div><span class="count-num" data-unit="d">&ndash;</span><span class="count-unit">Days</span></div>
+    <div><span class="count-num" data-unit="h">&ndash;</span><span class="count-unit">Hours</span></div>
+    <div><span class="count-num" data-unit="m">&ndash;</span><span class="count-unit">Minutes</span></div>
+    <div><span class="count-num" data-unit="s">&ndash;</span><span class="count-unit">Seconds</span></div>
+  </div>
+  <p class="count-date">Sunday, 10 January 2027 &middot; 5:00 PM</p>
+</section>
+
+<!-- ============================ CELEBRATIONS ============================ -->
+<section class="celebrations" id="celebrations">
+  <img class="leaf leaf-a" src="img/leaf.png" alt="" loading="lazy">
+  <img class="leaf leaf-b" src="img/leaf.png" alt="" loading="lazy">
+
+  <p class="eyebrow reveal">The Celebrations</p>
+
+  <div class="events">
+    <article class="event reveal" aria-labelledby="ev-engagement">
+      <header class="event-head">
+        <p class="event-day">Saturday</p>
+        <p class="event-num">02</p>
+        <p class="event-month">January 2027</p>
+        <h3 class="event-title" id="ev-engagement">Betrothal</h3>
+      </header>
+
+      <ol class="programme">
+        <li>
+          <p class="stop-time">5:30 PM</p>
+          <p class="stop-what">Betrothal ceremony</p>
+          <p class="stop-where">Our Lady of Lourdes Basilica, Chemperi</p>
+          <a class="stop-map" href="https://maps.app.goo.gl/2BvKakWqRWWPQm9R8" target="_blank" rel="noopener">Directions</a>
+        </li>
+        <li>
+          <p class="stop-time">6:00 PM</p>
+          <p class="stop-what">Reception</p>
+          <p class="stop-where">Same evening, following the ceremony at Chemperi Meadows</p>
+          <a class="stop-map" href="https://maps.app.goo.gl/AWV4axcUvWkXK2Ru6" target="_blank" rel="noopener">Directions</a>
+        </li>
+      </ol>
+
+      <a class="btn" href="engagement.ics" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>
+        Add to calendar
+      </a>
+    </article>
+    <article class="event reveal" aria-labelledby="ev-wedding">
+      <header class="event-head">
+        <p class="event-day">Sunday</p>
+        <p class="event-num">10</p>
+        <p class="event-month">January 2027</p>
+        <h3 class="event-title" id="ev-wedding">Wedding</h3>
+      </header>
+
+      <ol class="programme">
+        <li>
+          <p class="stop-time">5:00 PM</p>
+          <p class="stop-what">Wedding ceremony</p>
+          <p class="stop-where">St. Stephen&#39;s Knanaya Catholic Forane Church, Uzhavoor</p>
+          <a class="stop-map" href="https://maps.app.goo.gl/MrJUDg9LnRrHomyk7" target="_blank" rel="noopener">Directions</a>
+        </li>
+        <li>
+          <p class="stop-time">7:00 PM</p>
+          <p class="stop-what">Reception</p>
+          <p class="stop-where">Same evening, following the ceremony at St. Stephen&#39;s Parish Hall</p>
+          <a class="stop-map" href="https://share.google/MHBBQyCODZyhyyJcQ" target="_blank" rel="noopener">Directions</a>
+        </li>
+      </ol>
+
+      <a class="btn" href="wedding.ics" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>
+        Add to calendar
+      </a>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <img class="footer-art reveal" src="img/couple.png" alt="Illustration of Kiran and Anju" loading="lazy" width="409" height="610">
+  <p class="footer-lead reveal">With best compliments from</p>
+  <p class="footer-from reveal">Sooraj &amp; Anju</p>
+  <p class="footer-dates">Betrothal &middot; 02.01.2027<span aria-hidden="true"> &nbsp;|&nbsp; </span>Wedding &middot; 10.01.2027</p>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

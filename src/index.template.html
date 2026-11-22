@@ -1,130 +1,158 @@
-{#- GENERATED-FILE TEMPLATE. Text lives in content.yml; run `python build.py` after editing. -#}
+{#- Page layout. Text lives in content.yml; run `python build.py` after editing. -#}
+{%- set wedding = events[-1] -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
 
-<!-- ===================================================================
-     SHARE PREVIEW  — live at soorajabraham1.github.io/kiran-anju/
-     =================================================================== -->
+<!-- link preview (WhatsApp, Facebook, X ...) -->
 <meta property="og:type"             content="website">
 <meta property="og:site_name"        content="{{ share.site_name }}">
 <meta property="og:title"            content="{{ share.title }}">
 <meta property="og:description"      content="{{ share.description }}">
 <meta property="og:url"              content="{{ site_url }}">
-
 <meta property="og:image"            content="{{ site_url }}{{ share.image }}">
 <meta property="og:image:secure_url" content="{{ site_url }}{{ share.image }}">
 <meta property="og:image:type"       content="image/jpeg">
 <meta property="og:image:width"      content="{{ share.image_width }}">
 <meta property="og:image:height"     content="{{ share.image_height }}">
 <meta property="og:image:alt"        content="{{ share.image_alt }}">
-
 <meta name="twitter:card"            content="summary_large_image">
 <meta name="twitter:title"           content="{{ share.title }}">
 <meta name="twitter:description"     content="{{ share.twitter_description }}">
 <meta name="twitter:image"           content="{{ site_url }}{{ share.image }}">
-
 <meta name="theme-color" content="{{ page.theme_color }}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Jost:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="{{ images.hero_portrait }}" media="(max-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="{{ images.hero_wide }}" media="(min-aspect-ratio: 4/5)">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body>
 
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <picture class="hero-photo">
+    <source media="(max-aspect-ratio: 4/5)" srcset="{{ images.hero_portrait }}">
+    <img src="{{ images.hero_wide }}" alt="{{ images.hero_alt }}" fetchpriority="high">
+  </picture>
 
-<!-- =====================================================
-     PAGE ONE — who, whose, when
-     ===================================================== -->
-<div class="pagewrap">
-<header class="sheet hero">
-  <img class="bg-art" src="{{ images.background }}" alt="">
-  <img class="couple-art" src="{{ images.couple }}" alt="">
-
-  <div class="content">
-    <p class="verse" data-r style="--d:0">{{ verse.text }}
-      <cite>{{ verse.cite }}</cite></p>
-
-    <div class="rule" data-r style="--d:1"></div>
-
-    <p class="lead-in" data-r style="--d:2">{{ lead_in }}</p>
-
-    <div class="names">
-      <h1 class="name" data-r style="--d:3">{{ groom.name }}</h1>
-      <p class="parentage" data-r style="--d:3">{{ groom.parentage }}<br>{{ groom.address }}</p>
-
-      <p class="and" data-r style="--d:4">and</p>
-
-      <h2 class="name" data-r style="--d:4">{{ bride.name }}</h2>
-      <p class="parentage" data-r style="--d:5">{{ bride.parentage }}<br>{{ bride.address }}</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 45fr 55fr; margin-top: 16px;">
-      <div><!-- Left side empty or spacer --></div>
-      <div style="display: flex; flex-direction: column;">
-{% for e in events %}
-        <section class="occasion" aria-label="{{ e.title }}"{% if loop.first %} style="margin-top: 0px;"{% endif %}>
-          <h3 class="occasion-title">{{ e.title }}</h3>
-          <p class="label dayname">{{ e.date.strftime('%A') }}</p>
-          <p class="num" style="font-size: 38px;">{{ e.date.strftime('%d') }}</p>
-          <p class="monthyear">{{ e.date.strftime('%B %Y') }}</p>
-          <p class="time-line">at {{ e.time }}</p>
-          <p class="place">{% for line in e.place %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
-        </section>
-{% if not loop.last %}
-        <!-- Golden Dividing Line -->
-        <div class="rule" style="width: 100%; margin: 20px 0;"></div>
-{% endif %}
-{%- endfor %}
-      </div>
-    </div>
-
+  <div class="hero-text">
+    <p class="kicker">{{ hero.kicker }}</p>
+    <h1 class="hero-names">
+      <span>{{ hero.first_names[0] }}</span>
+      <span class="amp">&amp;</span>
+      <span>{{ hero.first_names[1] }}</span>
+    </h1>
+    <p class="hero-tagline">{{ hero.tagline }}</p>
+    <span class="hairline" aria-hidden="true"></span>
+    <ul class="hero-dates">
+      {%- for e in events %}
+      <li><span>{{ e.title }}</span>{{ e.date.strftime('%d %B %Y') }}</li>
+      {%- endfor %}
+    </ul>
   </div>
+
+  <a class="scroll-cue" href="#invitation" aria-label="Scroll to the invitation"><span></span></a>
 </header>
-</div>
 
-<!-- =====================================================
-     PAGE TWO — where and at what time
-     ===================================================== -->
-<div class="pagewrap">
-<main class="sheet details" id="details">
-  <img class="bg-art" src="{{ images.background }}" alt="">
+<main>
 
-  <div class="content">
+<!-- ============================ VERSE ============================ -->
+<section class="verse reveal" aria-label="Verse">
+  <svg class="ornament" viewBox="0 0 120 12" aria-hidden="true"><path d="M0 6h50M70 6h50"/><path d="M60 1l5 5-5 5-5-5z"/></svg>
+  <blockquote>
+    <p>{{ verse.text }}</p>
+    <cite>{{ verse.cite }}</cite>
+  </blockquote>
+</section>
 
-    <div class="functions">
-{% for e in events %}
-    <section class="function">
-      <h2 class="section-title">{{ e.title }}</h2>
-      <p class="label section-date">{{ e.date.strftime('%A, %d %B %Y') }}</p>
-      <div class="rule"></div>
-{% for s in e.stops %}
-      <div class="stop">
-        <p class="time">{{ s.time }}</p>
-        <p class="what">{{ s.what }}</p>
-        <p class="where">{{ s.where }}</p>
-        <a class="maplink" href="{{ s.map }}" target="_blank" rel="noopener">Open in Maps</a>
-      </div>
-{% endfor %}
-      <a class="addcal" href="{{ e.id }}.ics" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>Add to calendar</a>
-    </section>
-{% endfor %}
+<!-- ============================ INVITATION ============================ -->
+<section class="invitation" id="invitation">
+  <p class="eyebrow reveal">{{ headings.invitation }}</p>
+  <p class="lead-in reveal">{{ lead_in }}</p>
+
+  <div class="couple">
+    <div class="person reveal">
+      <h2 class="person-name">{{ groom.name }}</h2>
+      <p class="person-parents">{{ groom.parentage }}</p>
+      <p class="person-home">{{ groom.address }}</p>
     </div>
-
-    <div class="sign-off">
-      <p class="lead">{{ sign_off.lead }}</p>
-      <p class="from">{{ sign_off['from'] }}</p>
+    <p class="couple-and reveal" aria-hidden="true">and</p>
+    <div class="person reveal">
+      <h2 class="person-name">{{ bride.name }}</h2>
+      <p class="person-parents">{{ bride.parentage }}</p>
+      <p class="person-home">{{ bride.address }}</p>
     </div>
   </div>
-</main>
-</div>
+</section>
 
+<!-- ============================ COUNTDOWN ============================ -->
+<section class="countdown" aria-label="{{ countdown.label }}" data-to="{{ countdown.to }}">
+  <p class="eyebrow">{{ countdown.label }}</p>
+  <div class="count-grid">
+    <div><span class="count-num" data-unit="d">&ndash;</span><span class="count-unit">Days</span></div>
+    <div><span class="count-num" data-unit="h">&ndash;</span><span class="count-unit">Hours</span></div>
+    <div><span class="count-num" data-unit="m">&ndash;</span><span class="count-unit">Minutes</span></div>
+    <div><span class="count-num" data-unit="s">&ndash;</span><span class="count-unit">Seconds</span></div>
+  </div>
+  <p class="count-date">{{ wedding.date.strftime('%A, %d %B %Y') }} &middot; {{ wedding.time }}</p>
+</section>
+
+<!-- ============================ CELEBRATIONS ============================ -->
+<section class="celebrations" id="celebrations">
+  <img class="leaf leaf-a" src="{{ images.leaf }}" alt="" loading="lazy">
+  <img class="leaf leaf-b" src="{{ images.leaf }}" alt="" loading="lazy">
+
+  <p class="eyebrow reveal">{{ headings.celebrations }}</p>
+
+  <div class="events">
+    {%- for e in events %}
+    <article class="event reveal" aria-labelledby="ev-{{ e.id }}">
+      <header class="event-head">
+        <p class="event-day">{{ e.date.strftime('%A') }}</p>
+        <p class="event-num">{{ e.date.strftime('%d') }}</p>
+        <p class="event-month">{{ e.date.strftime('%B %Y') }}</p>
+        <h3 class="event-title" id="ev-{{ e.id }}">{{ e.title }}</h3>
+      </header>
+
+      <ol class="programme">
+        {%- for s in e.stops %}
+        <li>
+          <p class="stop-time">{{ s.time }}</p>
+          <p class="stop-what">{{ s.what }}</p>
+          <p class="stop-where">{{ s.where }}</p>
+          <a class="stop-map" href="{{ s.map }}" target="_blank" rel="noopener">Directions</a>
+        </li>
+        {%- endfor %}
+      </ol>
+
+      <a class="btn" href="{{ e.id }}.ics" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>
+        Add to calendar
+      </a>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <img class="footer-art reveal" src="{{ images.couple }}" alt="Illustration of Kiran and Anju" loading="lazy" width="409" height="610">
+  <p class="footer-lead reveal">{{ sign_off.lead }}</p>
+  <p class="footer-from reveal">{{ sign_off['from'] }}</p>
+  <p class="footer-dates">{% for e in events %}{{ e.title }} &middot; {{ e.date.strftime('%d.%m.%Y') }}{% if not loop.last %}<span aria-hidden="true"> &nbsp;|&nbsp; </span>{% endif %}{% endfor %}</p>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

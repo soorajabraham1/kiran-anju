@@ -12,7 +12,7 @@ site_url: "https://soorajabraham1.github.io/kiran-anju/"
 page:
   title: "Kiran & Anju — Wedding Invitation"
   description: "Kiran Jais and Anju Abraham invite you to their engagement and wedding."
-  theme_color: "#E8EBDC"
+  theme_color: "#24352B"
 
 # ---------- link preview (WhatsApp, Facebook, X ...) ----------
 share:
@@ -25,12 +25,31 @@ share:
   image_height: 630
   image_alt: "Kiran Jais and Anju Abraham — engagement 02 January, wedding 10 January 2027"
 
-# ---------- page images ----------
+# ---------- images (all in img/) ----------
 images:
-  background: page2c.jpg
-  couple: couple.png
+  hero_wide: img/hero-wide.jpg          # desktop / landscape
+  hero_portrait: img/hero-portrait.jpg  # phones
+  hero_alt: "Kiran and Anju in a garden"
+  leaf: img/leaf.png                    # watercolor ornament
+  couple: img/couple.png                # illustration above the sign-off
 
-# ---------- page one ----------
+# ---------- hero (first screen) ----------
+hero:
+  kicker: "Together with their families"
+  first_names: ["Kiran", "Anju"]
+  tagline: "are getting married"
+
+# ---------- countdown (wedding ceremony start, India time) ----------
+countdown:
+  label: "Counting down to the wedding"
+  to: "2027-01-10T17:00:00+05:30"
+
+# ---------- section headings ----------
+headings:
+  invitation: "The Invitation"
+  celebrations: "The Celebrations"
+
+# ---------- verse & invitation ----------
 verse:
   text: "“So they are no longer two, but one. Therefore, what God has joined together, let man not separate.”"
   cite: "Matthew 19:6"
@@ -47,13 +66,13 @@ bride:
   parentage: "D/o Mrs. Shelcy Abraham & Mr. Abraham Thomas"
   address: "Kavanadiyil House, Chemperi, Kannur"
 
-# ---------- events (page one summary + page two details + calendar files) ----------
+# ---------- events (event cards + calendar files) ----------
 #  id          -> calendar file name (<id>.ics)
 #  date        -> YYYY-MM-DD; weekday / day / month are derived from it
-#  time        -> shown on page one ("at 5:30 PM")
-#  place       -> page one venue, one entry per line
+#  time        -> start time shown on the event card
+#  place       -> main venue, one entry per line
 #  start / end -> 24h times (IST) used only for the calendar file
-#  stops       -> page two programme
+#  stops       -> programme list on the event card
 events:
   - id: engagement
     title: "Betrothal"
@@ -65,11 +84,11 @@ events:
     start: "17:30"
     end: "21:00"
     stops:
-      - time: "05:30 PM"
+      - time: "5:30 PM"
         what: "Betrothal ceremony"
         where: "Our Lady of Lourdes Basilica, Chemperi"
         map: "https://maps.app.goo.gl/2BvKakWqRWWPQm9R8"
-      - time: "06:00 PM"
+      - time: "6:00 PM"
         what: "Reception"
         where: "Same evening, following the ceremony at Chemperi Meadows"
         map: "https://maps.app.goo.gl/AWV4axcUvWkXK2Ru6"
@@ -79,20 +98,20 @@ events:
     date: 2027-01-10
     time: "5:00 PM"
     place:
-      - "St Stephen's Knanaya catholic forane church, Uzhavoor"
+      - "St. Stephen's Knanaya Catholic Forane Church, Uzhavoor"
     start: "17:00"
     end: "22:00"
     stops:
       - time: "5:00 PM"
         what: "Wedding ceremony"
-        where: "St Stephen's Knanaya catholic forane church, Uzhavoor"
+        where: "St. Stephen's Knanaya Catholic Forane Church, Uzhavoor"
         map: "https://maps.app.goo.gl/MrJUDg9LnRrHomyk7"
       - time: "7:00 PM"
         what: "Reception"
         where: "Same evening, following the ceremony at St. Stephen's Parish Hall"
         map: "https://share.google/MHBBQyCODZyhyyJcQ"
 
-# ---------- page two footer ----------
+# ---------- footer ----------
 sign_off:
   lead: "With best compliments from"
   from: "Sooraj & Anju"
