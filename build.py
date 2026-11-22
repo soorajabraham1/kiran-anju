@@ -7,6 +7,7 @@ and writes index.html (all events), <slug>/index.html for every entry under
 "invites" (only that invite's events), plus one <event id>.ics per event. Commit the outputs;
 GitHub Pages serves them as plain static files.
 """
+import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,6 +21,11 @@ def ics_escape(text):
     """Escape TEXT values per RFC 5545."""
     return (str(text).replace("\\", "\\\\").replace(";", "\\;")
             .replace(",", "\\,").replace("\n", "\\n"))
+
+
+def asset_version(name):
+    """Short content hash, appended as ?v=... so phones never mix a new page with an old cached file."""
+    return hashlib.sha1((ROOT / name).read_bytes()).hexdigest()[:8]
 
 
 def merge(base, extra):
@@ -58,6 +64,7 @@ def main():
         autoescape=select_autoescape(["html"]),  # HTML escaped, .ics not
     )
     env.filters["ics"] = ics_escape
+    env.globals["v"] = {name: asset_version(name) for name in ("style.css", "script.js")}
 
     html = env.get_template("index.template.html")
     (ROOT / "index.html").write_text(
