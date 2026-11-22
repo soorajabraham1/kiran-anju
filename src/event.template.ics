@@ -1,0 +1,26 @@
+{#- Calendar file template. Rendered once per event by build.py. -#}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kiran & Anju//Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:{{ e.id }}-kiran-anju@soorajabraham1.github.io
+DTSTAMP:{{ now }}
+DTSTART;TZID=Asia/Kolkata:{{ e.date.strftime('%Y%m%d') }}T{{ e.start | replace(':', '') }}00
+DTEND;TZID=Asia/Kolkata:{{ e.date.strftime('%Y%m%d') }}T{{ e.end | replace(':', '') }}00
+SUMMARY:{{ (calendar.summary_prefix ~ e.title) | ics }}
+LOCATION:{{ e.stops[0].where | ics }}
+DESCRIPTION:{% for s in e.stops %}{{ (s.time ~ ' – ' ~ s.what ~ ': ' ~ s.where ~ ' (' ~ s.map ~ ')') | ics }}{% if not loop.last %}\n{% endif %}{% endfor %}
+URL:{{ site_url }}
+END:VEVENT
+END:VCALENDAR

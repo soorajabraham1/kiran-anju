@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kiran & Anju//Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:engagement-kiran-anju@soorajabraham1.github.io
+DTSTAMP:20261122T153434Z
+DTSTART;TZID=Asia/Kolkata:20270102T173000
+DTEND;TZID=Asia/Kolkata:20270102T210000
+SUMMARY:Kiran & Anju — Betrothal
+LOCATION:Our Lady of Lourdes Basilica\, Chemperi
+DESCRIPTION:05:30 PM – Betrothal ceremony: Our Lady of Lourdes Basilica\, Chemperi (https://maps.app.goo.gl/2BvKakWqRWWPQm9R8)\n06:00 PM – Reception: Same evening\, following the ceremony at Chemperi Meadows (https://maps.app.goo.gl/AWV4axcUvWkXK2Ru6)
+URL:https://soorajabraham1.github.io/kiran-anju/
+END:VEVENT
+END:VCALENDAR

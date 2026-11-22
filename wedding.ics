@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kiran & Anju//Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wedding-kiran-anju@soorajabraham1.github.io
+DTSTAMP:20261122T153434Z
+DTSTART;TZID=Asia/Kolkata:20270110T170000
+DTEND;TZID=Asia/Kolkata:20270110T220000
+SUMMARY:Kiran & Anju — Wedding
+LOCATION:St Stephen's Knanaya catholic forane church\, Uzhavoor
+DESCRIPTION:5:00 PM – Wedding ceremony: St Stephen's Knanaya catholic forane church\, Uzhavoor (https://maps.app.goo.gl/MrJUDg9LnRrHomyk7)\n7:00 PM – Reception: Same evening\, following the ceremony at St. Stephen's Parish Hall (https://share.google/MHBBQyCODZyhyyJcQ)
+URL:https://soorajabraham1.github.io/kiran-anju/
+END:VEVENT
+END:VCALENDAR
